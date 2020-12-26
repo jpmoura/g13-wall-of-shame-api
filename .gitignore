@@ -392,6 +392,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Sonar Scanner
+.scannerwork/
+
+# Jest Coverage
+coverage-e2e/
+coverage/
+
 =======
 # Local
 .env

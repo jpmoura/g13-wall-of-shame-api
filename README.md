@@ -1,73 +1,79 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
+# G13 Wall of Shame API
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=bugs)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=code_smells)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=sqale_index)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=coverage)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a REST API created with [NestJS Framework](https://github.com/nestjs/nest) with TypeScript for an application hosted on Heroku that help me keep track all my friend's mistakes.
+
+A swagger interface is provided in `APP_HOST\swagger` where `APP_HOST` is the host address for the application.
 
 ## Installation
 
+To install all packages required simply run:
+
 ```bash
-$ npm install
+$ yarn
 ```
+
+## Build
+To build a production ready version just run
+
+```bash
+yarn build
+```
+
+Also, there is a `Dockerfile` that requires that you run the command above ___before___ you build a container image with it.
 
 ## Running the app
 
+To run this app yoou could use the following commands:
+
 ```bash
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
 # production mode
-$ npm run start:prod
+$ yarn start:prod
 ```
+
+Also, it's expected that you provide an `.env` file with the following structure:
+
+```env
+DATABASE_CS=MONGO_DB_CONNECTION_STRING
+PORT=APP_PORT
+SONAR_TOKEN=YOUR_SONAR_TOOKEN
+SONAR_HOST=YOUR_SONAR_HOST
+```
+
+For your convenience there is a `.env.example` in this repository following this structure.
 
 ## Test
 
+At this moment there are only end-to-end tests but at the same time the app is 100% covered (lines and branches). To run the tests execute the following command:
+
 ```bash
-# unit tests
-$ npm run test
-
 # e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ yarn test:e2e
 ```
 
-## Support
+## Sonar
+After configuring the `.env` file and execute the test command, you could invoke a task that will update all Sonar metrics based on parameters filled in `.env` file. The command to do so is:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+$ yarn sonar
+```
 
-## Stay in touch
+## TODO
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+1. Unit tests
 
 ## License
 
-  Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+  G13 Wall of Shame API is [MIT licensed](https://github.com/jpmoura/g13-wall-of-shame-api/blob/master/LICENSE).
