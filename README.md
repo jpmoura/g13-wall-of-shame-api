@@ -5,42 +5,45 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=sqale_index)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=g13-wall-of-shame-api&metric=coverage)](https://sonarcloud.io/dashboard?id=g13-wall-of-shame-api)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 ## Description
 
 This is a REST API created with [NestJS Framework](https://github.com/nestjs/nest) with TypeScript for an application hosted on Heroku that help me keep track all my friend's mistakes.
 
-A swagger interface is provided in `APP_HOST\swagger` where `APP_HOST` is the host address for the application.
+A Swagger interface is provided in `APP_HOST\swagger` where `APP_HOST` is the host address for the application.
 
 ## Installation
 
 To install all packages required simply run:
 
-```bash
-$ yarn
+```sh
+yarn
 ```
 
 ## Build
-To build a production ready version just run
 
-```bash
+To build a production ready version just run:
+
+```sh
 yarn build
 ```
 
-Also, there is a `Dockerfile` that requires that you run the command above ___before___ you build a container image with it.
+Also, there is a [`Dockerfile`](./Dockerfile) if you rather run this as a container than a standalone app.
 
 ## Running the app
 
-To run this app yoou could use the following commands:
+To run this app you could use the following commands:
 
-```bash
+```sh
 # development
-$ yarn start
+yarn start
 
 # watch mode
-$ yarn start:dev
+yarn start:dev
 
 # production mode
-$ yarn start:prod
+yarn start:prod
 ```
 
 Also, it's expected that you provide an `.env` file with the following structure:
@@ -48,7 +51,7 @@ Also, it's expected that you provide an `.env` file with the following structure
 ```env
 DATABASE_CS=MONGO_DB_CONNECTION_STRING
 PORT=APP_PORT
-SONAR_TOKEN=YOUR_SONAR_TOOKEN
+SONAR_TOKEN=YOUR_SONAR_TOKEN
 SONAR_HOST=YOUR_SONAR_HOST
 ```
 
@@ -58,16 +61,9 @@ For your convenience there is a `.env.example` in this repository following this
 
 At this moment there are only end-to-end tests but at the same time the app is 100% covered (lines and branches). To run the tests execute the following command:
 
-```bash
+```sh
 # e2e tests
-$ yarn test:e2e
-```
-
-## Sonar
-After configuring the `.env` file and execute the test command, you could invoke a task that will update all Sonar metrics based on parameters filled in `.env` file. The command to do so is:
-
-```bash
-$ yarn sonar
+yarn test:e2e
 ```
 
 ## TODO
@@ -76,4 +72,4 @@ $ yarn sonar
 
 ## License
 
-  G13 Wall of Shame API is [MIT licensed](https://github.com/jpmoura/g13-wall-of-shame-api/blob/master/LICENSE).
+G13 Wall of Shame API is [MIT licensed](https://github.com/jpmoura/g13-wall-of-shame-api/blob/master/LICENSE).
